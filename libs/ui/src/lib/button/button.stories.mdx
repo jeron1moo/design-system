@@ -1,0 +1,71 @@
+import { Story, Meta } from '@storybook/addon-docs';
+import { Button } from './button';
+import ReactLogo from '../../../../icons/plus-square-regular.svg';
+
+<Meta title="Design System/Atoms/Button" component={Button} />
+
+export const Template = (args) => <Button {...args} />;
+
+# Button
+
+## Primary
+
+<Story
+  name="Primary"
+  args={{
+    children: 'Primary',
+    color: 'primary',
+  }}
+  argTypes={{ onClick: { action: 'clicked' } }}
+  parameters={{
+    actions: {
+      handles: ['mouseclick', 'click .btn'],
+    },
+  }}
+>
+  {Template.bind({})}
+</Story>
+
+## Secondary
+
+<Story
+  name="Secondary"
+  args={{
+    children: 'Secondary',
+    color: 'secondary',
+  }}
+  argTypes={{ onClick: { action: 'clicked' } }}
+  parameters={{
+    actions: {
+      handles: ['mouseclick', 'click .btn'],
+    },
+  }}
+>
+  {Template.bind({})}
+</Story>
+
+## Disabled
+
+<Story
+  name="Disabled"
+  args={{
+    children: 'Disabled',
+    disabled: true,
+  }}
+  argTypes={{ onClick: { action: 'clicked' } }}
+  parameters={{
+    actions: {
+      handles: ['mouseclick', 'click .btn'],
+    },
+  }}
+>
+  {Template.bind({})}
+</Story>
+
+## Icon
+
+<Story name="Icon">
+  <Button>
+    <>Hi there</>
+  </Button>
+</Story>
