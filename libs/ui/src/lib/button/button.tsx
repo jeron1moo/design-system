@@ -6,7 +6,6 @@ import styled from 'styled-components';
 
 /* eslint-disable-next-line */
 export interface ButtonProps {
-  variant?: 'solid' | 'outline' | 'ghost';
   color?: 'primary' | 'secondary' | 'danger' | 'inherit';
   shape?: 'pill' | 'rounded' | 'circular';
   autoFocus?: boolean;
@@ -31,9 +30,14 @@ const COLORS = {
   OUTLINE: 'outline'
 };
 
+const SHAPES = {
+  PILL: 'pill',
+  ROUNDED: 'rounded',
+  CIRCULAR: 'circular'
+};
+
 const StyledButton = styled.button`
   border: 0;
-  border-radius: 3em;
   cursor: pointer;
   display: inline-block;
   overflow: hidden;
@@ -64,6 +68,28 @@ const StyledButton = styled.button`
         transform: none;
       }
     `}
+
+  ${(props) => {
+    switch (props.shape) {
+      case SHAPES.PILL:
+        return `
+          border-radius: 40px;
+        `;
+      case SHAPES.CIRCULAR:
+        return `
+          border-radius: 50%;
+        `;
+      case SHAPES.ROUNDED:
+        return `
+          border-radius: 4px;
+        `;
+      default:
+        return `
+          border-radius: 40px;
+        `;
+    }
+  }}
+
 
   ${(props) =>
     props.color === COLORS.PRIMARY &&
